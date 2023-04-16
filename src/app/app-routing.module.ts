@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './core/components/main/main.component';
 import { CheatsheetComponent } from './core/components/cheatsheet/cheatsheet.component';
+import { LoginGuard } from './core/services/Guard/login.guard';
+import { AddCodeComponent } from './core/components/add-code/add-code.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
@@ -9,7 +11,11 @@ const routes: Routes = [
     path: 'main',
     component: MainComponent,
   },
-  { path: 'cheatsheet', component: CheatsheetComponent },
+  {
+    path: 'cheatsheet',
+    component: CheatsheetComponent,
+  },
+  { path: 'add', canActivate: [LoginGuard], component: AddCodeComponent },
 ];
 
 @NgModule({
