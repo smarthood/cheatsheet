@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-code.component.scss'],
 })
 export class AddCodeComponent {
-  onClick;
+  onClick() {}
 }
