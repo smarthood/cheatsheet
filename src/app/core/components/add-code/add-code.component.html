@@ -1,1 +1,22 @@
-<p>add-code works!</p>
+<div>
+  <form action="" fxLayout.lt-md="column" fxLayoutGap="10px"  class="form">
+   
+    <div class="form-container" fxLayout="row" fxLayout.lt-md="column" fxFlex="100%" fxLayoutGap="10px">
+      <div class="form-field" fxLayout="row" fxLayout.lt-md="column" fxFlex="50%">
+        <label fxFlex="40%">Title</label>
+        <mat-form-field appearance="outline" fxFlex="60%">
+          <input matInput formControlName="Title">
+          <!-- <mat-error *ngIf="employeeDetail.get('firstName')?.hasError('required')">{{messages?.Required}}</mat-error> -->
+          <!-- <mat-error *ngIf="employeeDetail.get('firstName')?.hasError('pattern')">{{messages?.Invalid}}</mat-error> -->
+        </mat-form-field>
+      </div>
+      <div class="form-field" fxLayout="row" fxLayout.lt-md="column" fxFlex="50%">
+        <label fxFlex="40%">Description</label>
+        <mat-form-field appearance="outline" fxFlex="60%">
+          <textarea matInput formControlName="lastName"></textarea>
+          <!-- <mat-error *ngIf="employeeDetail.get('lastName')?.hasError('required')">{{messages?.Required}}</mat-error> -->
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>
