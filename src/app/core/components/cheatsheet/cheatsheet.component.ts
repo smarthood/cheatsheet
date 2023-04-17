@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./cheatsheet.component.scss'],
 })
 export class CheatsheetComponent {
+  isAuth = false;
+  ngOnInit(): void {
+    if (sessionStorage.getItem('login') == 'truewai') {
+      this.isAuth = true;
+    }
+  }
   panelOpenState = false;
 }
