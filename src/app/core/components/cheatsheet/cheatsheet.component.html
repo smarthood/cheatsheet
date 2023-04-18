@@ -4,7 +4,8 @@
       <input matInput placeholder="search...">
     </mat-form-field>
     <mat-accordion>
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
+        *ngFor="let item of array">
         <mat-expansion-panel-header>
           <mat-panel-title>
             Table
@@ -13,7 +14,7 @@
             code for table using ngfor
           </mat-panel-description>
         </mat-expansion-panel-header>
-        <mat-tab-group animationDuration="0ms">
+        <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" animationDuration="0ms">
           <mat-tab label="HTML">
             <button mat-icon-button color="accent" class="copy_btn"
               [cdkCopyToClipboard]="html"><mat-icon>file_copy</mat-icon></button>
