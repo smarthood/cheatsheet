@@ -17,6 +17,7 @@ export class AddCodeComponent {
     title: 'smart',
     data: 'kajdhjhdj dfcjjf',
   };
+<<<<<<< HEAD
 
   constructor(
     private apiService: ApiService,
@@ -25,6 +26,9 @@ export class AddCodeComponent {
   ) {
     this.id = this._Activatedroute.snapshot.paramMap.get('id');
   }
+=======
+  constructor(private apiService: ApiService, private snack: MatSnackBar) {}
+>>>>>>> 2a11c8b67103697d4fc09c48b8371c406c1e0b3b
   ngOnInit(): void {
     this.cheatForm = new FormGroup({
       title: new FormControl('null', Validators.required),
@@ -42,6 +46,7 @@ export class AddCodeComponent {
       });
     }
   }
+<<<<<<< HEAD
   onGet() {
     console.log(this.apiService.getData());
   }
@@ -49,4 +54,6 @@ export class AddCodeComponent {
   add() {
     this.ts_code = true;
   }
+=======
+>>>>>>> 2a11c8b67103697d4fc09c48b8371c406c1e0b3b
 }

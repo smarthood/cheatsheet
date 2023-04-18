@@ -9,8 +9,8 @@ export class ApiService {
   postData(id: string, data: any) {
     return set(ref(this.db, data.core + '/' + data.title), data);
   }
-  getData() {
-    const starCountRef = ref(this.db, '/null');
+  getData(id: any) {
+    const starCountRef = ref(this.db, '/' + id);
     onValue(starCountRef, (snapshot) => {
       this.data = snapshot.val();
     });

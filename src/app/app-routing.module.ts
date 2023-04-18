@@ -12,10 +12,10 @@ const routes: Routes = [
     component: MainComponent,
   },
   {
-    path: 'cheatsheet',
+    path: 'cheatsheet/:id',
     component: CheatsheetComponent,
   },
-  { path: 'add/:id', canActivate: [LoginGuard], component: AddCodeComponent },
+  { path: 'add', canActivate: [LoginGuard], component: AddCodeComponent },
 ];
 
 @NgModule({

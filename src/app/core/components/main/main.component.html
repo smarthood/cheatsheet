@@ -15,11 +15,12 @@
       <mat-icon>play_circle</mat-icon>
     </div>
 
-    <div class="card" matRipple routerLink="/cheatsheet" fxFlex="30%" fxFlex.lt-md="45%" fxFlex.lt-sm="95%"
-      fxLayoutAlign="space-around center">
+    <div class="card" matRipple [routerLink]="['/cheatsheet','angular']" fxFlex="30%" fxFlex.lt-md="45%"
+      fxFlex.lt-sm="95%" fxLayoutAlign="space-around center">
       Angular
       cheatsheet</div>
-    <div class="card" matRipple fxFlex="30%" fxFlex.lt-md="45%" fxFlex.lt-sm="95%" fxLayoutAlign="space-around center">
+    <div class="card" matRipple [routerLink]="['/cheatsheet','node']" fxFlex="30%" fxFlex.lt-md="45%" fxFlex.lt-sm="95%"
+      fxLayoutAlign="space-around center">
       Node
       cheatsheet</div>
   </div>
