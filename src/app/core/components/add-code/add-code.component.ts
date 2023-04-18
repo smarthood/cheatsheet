@@ -39,4 +39,7 @@ export class AddCodeComponent {
       });
     }
   }
+  onGet() {
+    console.log(this.apiService.getData());
+  }
 }
