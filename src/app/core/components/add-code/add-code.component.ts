@@ -10,7 +10,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AddCodeComponent {
   id: any;
-  data: any;
+  data = {
+    title: 'smart',
+    data: 'kajdhjhdj dfcjjf',
+  };
   constructor(
     private apiService: ApiService,
     private snack: MatSnackBar,

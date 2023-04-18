@@ -15,10 +15,14 @@
         </mat-expansion-panel-header>
         <mat-tab-group animationDuration="0ms">
           <mat-tab label="HTML">
+            <button mat-icon-button color="accent" class="copy_btn"
+              [cdkCopyToClipboard]="html"><mat-icon>file_copy</mat-icon></button>
             <pre><code [highlight]="html"></code></pre>
           </mat-tab>
           <mat-tab label="TS">
-            <pre><code [highlight]="ts"></code></pre>
+            <button mat-icon-button class="copy_btn" [cdkCopyToClipboard]="ts"><mat-icon>file_copy</mat-icon></button>
+            <pre><code [highlight]="ts">
+            </code></pre>
           </mat-tab>
         </mat-tab-group>
       </mat-expansion-panel>
