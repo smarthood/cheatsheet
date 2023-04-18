@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Clipboard } from '@angular/cdk/clipboard';
+
 @Component({
   selector: 'app-cheatsheet',
   templateUrl: './cheatsheet.component.html',

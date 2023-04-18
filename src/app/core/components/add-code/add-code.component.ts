@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AddCodeComponent {
   id: any;
+  data: any;
   constructor(
     private apiService: ApiService,
     private snack: MatSnackBar,
@@ -18,7 +19,7 @@ export class AddCodeComponent {
     this.id = this._Activatedroute.snapshot.paramMap.get('id');
   }
   onClick() {
-    this.apiService.postData(this.id, data).then(() => {
+    this.apiService.postData(this.id, this.data).then(() => {
       this.snack.open('Data saved successfully');
     });
   }
