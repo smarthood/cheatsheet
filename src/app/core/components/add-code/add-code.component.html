@@ -1,5 +1,5 @@
 <div>
-  <form action="" fxLayout="column" fxLayoutGap="10px" class="form" >
+  <form action="" fxLayout="column" fxLayoutGap="10px" class="form">
 
     <div class="form-container" fxLayout="row" fxLayout.lt-md="column" fxFlex="100%" fxLayoutGap="10px">
       <div class="form-field" fxLayout="row" fxLayout.lt-md="column" fxFlex="50%">
@@ -19,20 +19,26 @@
     </div>
     <div class="form-container" fxLayout="row" fxLayout.lt-md="column" fxFlex="100%" fxLayoutGap="10px">
       <div class="form-field" fxLayout="row" fxLayout.lt-md="column" fxFlex="50%">
-        <label fxFlex="40%">Title</label>
+        <label fxFlex="40%">Language</label>
         <mat-form-field appearance="outline" fxFlex="60%">
           <input matInput formControlName="Title">
           <!-- <mat-error *ngIf="employeeDetail.get('firstName')?.hasError('required')">{{messages?.Required}}</mat-error> -->
         </mat-form-field>
       </div>
-      <div class="form-field" fxLayout="row" fxLayout.lt-md="column" fxFlex="50%">
-        <label fxFlex="40%">Description</label>
-        <mat-form-field appearance="outline" fxFlex="60%">
-          <input matInput formControlName="lastName">
+
+    </div>
+    <div>
+      <div class="form-field" fxLayout="row" fxLayout.lt-md="column">
+        <label fxFlex="20%">Code</label>
+        <mat-form-field appearance="outline" class="code">
+          <textarea matInput formControlName="lastName"></textarea>
           <!-- <mat-error *ngIf="employeeDetail.get('lastName')?.hasError('required')">{{messages?.Required}}</mat-error> -->
         </mat-form-field>
       </div>
     </div>
+<mat-divider>
+</mat-divider>
+    <button mat-button color="primary">Primary</button>
   </form>
   <button mat-button (click)="onClick()">post</button>
   <button mat-button (click)="onGet()">get</button>
