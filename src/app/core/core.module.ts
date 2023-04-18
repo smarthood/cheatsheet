@@ -35,6 +35,7 @@ import {
     MatInputModule,
     HighlightModule,
     MatTabsModule,
+    ClipboardModule,
   ],
   providers: [
     {
