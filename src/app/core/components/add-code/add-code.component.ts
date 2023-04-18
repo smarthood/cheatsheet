@@ -10,12 +10,14 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./add-code.component.scss'],
 })
 export class AddCodeComponent {
+  ts_code = false;
   id: any;
   cheatForm!: FormGroup;
   data = {
     title: 'smart',
     data: 'kajdhjhdj dfcjjf',
   };
+
   constructor(
     private apiService: ApiService,
     private snack: MatSnackBar,
@@ -31,6 +33,7 @@ export class AddCodeComponent {
       html: new FormControl('null', Validators.required),
       ts: new FormControl('null', Validators.required),
     });
+
   }
   onClick() {
     if (this.cheatForm.valid) {
@@ -41,5 +44,9 @@ export class AddCodeComponent {
   }
   onGet() {
     console.log(this.apiService.getData());
+  }
+
+  add() {
+    this.ts_code = true;
   }
 }
