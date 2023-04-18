@@ -50,3 +50,21 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.mat-mdc-form-field-flex {
+  height: 35px !important;
+}
+
+// .mat-mdc-form-field-infix {
+//   min-height: 40px;
+// }
+
+.mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
