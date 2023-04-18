@@ -34,6 +34,7 @@ import {
     MatInputModule,
     HighlightModule,
     MatTabsModule,
+    
   ],
   providers: [
     {
@@ -49,4 +50,4 @@ import {
     },
   ],
 })
-export class CoreModule {}
+export class CoreModule { }
