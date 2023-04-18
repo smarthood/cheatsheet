@@ -8,6 +8,7 @@ import { Clipboard } from '@angular/cdk/clipboard';
 })
 export class CheatsheetComponent {
   isAuth = false;
+  array = [1, 2, 3, 4];
   html = `
   <h1>title</h1> <div>hello</div>
   `;
