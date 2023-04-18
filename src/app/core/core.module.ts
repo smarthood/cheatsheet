@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatDividerModule } from '@angular/material/divider';
 import {
   HighlightModule,
   HIGHLIGHT_OPTIONS,
@@ -37,6 +38,7 @@ import {
     MatTabsModule,
     ClipboardModule,
     ReactiveFormsModule,
+    MatDividerModule
   ],
   providers: [
     {
@@ -52,4 +54,4 @@ import {
     },
   ],
 })
-export class CoreModule {}
+export class CoreModule { }
