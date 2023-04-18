@@ -1,10 +1,10 @@
 <div class="add-container">
-  <form fxLayout.lt-md="column" fxLayoutGap="10px" class="form">
+  <form fxLayout.lt-md="column" fxLayoutGap="10px" class="form" [formGroup]="cheatForm">
     <div class="form-container" fxLayout="row" fxLayout.lt-md="column" fxFlex="100%" fxLayoutGap="30px">
       <div class="form-field" fxLayout="row" fxLayout.lt-md="column" fxFlex="50%">
         <label fxFlex="40%">Title</label>
         <mat-form-field appearance="outline" fxFlex="60%">
-          <input matInput formControlName="Title">
+          <input matInput formControlName="title">
           <!-- <mat-error *ngIf="employeeDetail.get('firstName')?.hasError('required')">{{messages?.Required}}</mat-error> -->
           <!-- <mat-error *ngIf="employeeDetail.get('firstName')?.hasError('pattern')">{{messages?.Invalid}}</mat-error> -->
         </mat-form-field>
@@ -12,7 +12,7 @@
       <div class="form-field" fxLayout="row" fxLayout.lt-md="column" fxFlex="50%">
         <label fxFlex="40%">Description</label>
         <mat-form-field appearance="outline" fxFlex="60%">
-          <input matInput formControlName="lastName">
+          <input matInput formControlName="description">
           <!-- <mat-error *ngIf="employeeDetail.get('lastName')?.hasError('required')">{{messages?.Required}}</mat-error> -->
         </mat-form-field>
       </div>
