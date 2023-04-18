@@ -16,13 +16,7 @@ export class AddCodeComponent {
     title: 'smart',
     data: 'kajdhjhdj dfcjjf',
   };
-  constructor(
-    private apiService: ApiService,
-    private snack: MatSnackBar,
-    private _Activatedroute: ActivatedRoute
-  ) {
-    this.id = this._Activatedroute.snapshot.paramMap.get('id');
-  }
+  constructor(private apiService: ApiService, private snack: MatSnackBar) {}
   ngOnInit(): void {
     this.cheatForm = new FormGroup({
       title: new FormControl('null', Validators.required),
@@ -38,8 +32,5 @@ export class AddCodeComponent {
         this.snack.open('Data saved successfully');
       });
     }
-  }
-  onGet() {
-    console.log(this.apiService.getData());
   }
 }

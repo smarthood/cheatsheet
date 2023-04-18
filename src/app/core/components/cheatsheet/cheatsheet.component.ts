@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Clipboard } from '@angular/cdk/clipboard';
+import { ApiService } from '../../services/API/api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cheatsheet',
@@ -7,6 +9,8 @@ import { Clipboard } from '@angular/cdk/clipboard';
   styleUrls: ['./cheatsheet.component.scss'],
 })
 export class CheatsheetComponent {
+  id: any;
+  data: any;
   isAuth = false;
   array = [1, 2, 3, 4];
   html = `
@@ -15,10 +19,18 @@ export class CheatsheetComponent {
   ts = `
   console.log("hello world")
   `;
+
+  constructor(
+    private apiService: ApiService,
+    private _Activatedroute: ActivatedRoute
+  ) {
+    this.id = this._Activatedroute.snapshot.paramMap.get('id');
+  }
   ngOnInit(): void {
     if (sessionStorage.getItem('login') == 'truewai') {
       this.isAuth = true;
     }
+    this.data = this.apiService.getData(this.id);
   }
   panelOpenState = false;
 }
