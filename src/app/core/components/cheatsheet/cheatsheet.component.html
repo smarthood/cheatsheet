@@ -13,7 +13,7 @@
             code for table using ngfor
           </mat-panel-description>
         </mat-expansion-panel-header>
-        <mat-tab-group>
+        <mat-tab-group animationDuration="0ms">
           <mat-tab label="HTML">
             <pre><code [highlight]="html"></code></pre>
           </mat-tab>
@@ -24,7 +24,7 @@
       </mat-expansion-panel>
     </mat-accordion>
     <div class="add-btn" *ngIf="isAuth">
-      <button mat-fab routerLink="/add"><mat-icon>add</mat-icon></button>
+      <button mat-fab routerLink="/add" [routerLink]="['/add','angular']"><mat-icon>add</mat-icon></button>
     </div>
   </div>
 </div>
