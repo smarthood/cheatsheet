@@ -30,7 +30,10 @@ export class CheatsheetComponent {
     if (sessionStorage.getItem('login') == 'truewai') {
       this.isAuth = true;
     }
+    console.log('hello');
+
     this.data = this.apiService.getData(this.id);
+    console.log(this.data);
   }
   panelOpenState = false;
 }

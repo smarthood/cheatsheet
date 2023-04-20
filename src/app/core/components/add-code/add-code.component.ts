@@ -21,7 +21,7 @@ export class AddCodeComponent {
     this.cheatForm = new FormGroup({
       title: new FormControl('null', Validators.required),
       description: new FormControl('null', Validators.required),
-      core: new FormControl('null', Validators.required),
+      core: new FormControl('angular', Validators.required),
       html: new FormControl('null', Validators.required),
       ts: new FormControl('null', Validators.required),
     });
