@@ -1,18 +1,18 @@
 <div>
-  <form action="" fxLayout="column" fxLayoutGap="10px" class="form">
+  <form [formGroup]="cheatForm" fxLayout="column" fxLayoutGap="10px" class="form">
 
     <div class="form-container" fxLayout="row" fxLayout.lt-md="column" fxFlex="100%" fxLayoutGap="10px">
       <div class="form-field" fxLayout="row" fxLayout.lt-md="column" fxFlex="50%">
         <label fxFlex="40%">Title</label>
         <mat-form-field appearance="outline" fxFlex="60%">
-          <input matInput formControlName="title">
-          <!-- <mat-error *ngIf="employeeDetail.get('firstName')?.hasError('required')">{{messages?.Required}}</mat-error> -->
+          <input matInput formControlName="title" required>
+          <mat-error *ngIf="cheatForm.get('title')?.hasError('required')">This Field is Required</mat-error>
         </mat-form-field>
       </div>
       <div class="form-field" fxLayout="row" fxLayout.lt-md="column" fxFlex="50%">
         <label fxFlex="40%">Description</label>
         <mat-form-field appearance="outline" fxFlex="60%">
-          <input matInput formControlName="lastName">
+          <input matInput formControlName="description" required>
           <!-- <mat-error *ngIf="employeeDetail.get('lastName')?.hasError('required')">{{messages?.Required}}</mat-error> -->
         </mat-form-field>
       </div>
@@ -21,23 +21,28 @@
       <div class="form-field" fxLayout="row" fxLayout.lt-md="column" fxFlex="50%">
         <label fxFlex="40%">Language</label>
         <mat-form-field appearance="outline" fxFlex="60%">
-          <input matInput formControlName="Title">
+          <input matInput formControlName="core">
           <!-- <mat-error *ngIf="employeeDetail.get('firstName')?.hasError('required')">{{messages?.Required}}</mat-error> -->
         </mat-form-field>
       </div>
-
     </div>
     <div>
-      <div class="form-field" fxLayout="row" fxLayout.lt-md="column">
-        <label fxFlex="20%">Code</label>
-        <mat-form-field appearance="outline" class="code">
-          <textarea matInput formControlName="lastName"></textarea>
-          <!-- <mat-error *ngIf="employeeDetail.get('lastName')?.hasError('required')">{{messages?.Required}}</mat-error> -->
-        </mat-form-field>
-      </div>
+      <label fxFlex="20%">Code</label>
+      <mat-form-field appearance="outline" class="code">
+        <textarea matInput formControlName="html"></textarea>
+        <!-- <mat-error *ngIf="employeeDetail.get('lastName')?.hasError('required')">{{messages?.Required}}</mat-error> -->
+      </mat-form-field>
     </div>
-    <mat-divider>
-    </mat-divider>
+    <button *ngIf="!ts_code" mat-button color="primary" (click)="add()">Primary</button>
+    <div *ngIf=" ts_code">
+      <label fxFlex="20%">Code</label>
+      <mat-form-field appearance="outline" class="code">
+        <textarea matInput formControlName="ts"></textarea>
+        <!-- <mat-error *ngIf="employeeDetail.get('lastName')?.hasError('required')">{{messages?.Required}}</mat-error> -->
+      </mat-form-field>
+    </div>
+<mat-divider>
+</mat-divider>
     <button mat-button color="primary">Primary</button>
   </form>
   <button mat-button (click)="onClick()">post</button>
