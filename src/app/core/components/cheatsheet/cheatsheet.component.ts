@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Clipboard } from '@angular/cdk/clipboard';
 import { ApiService } from '../../services/API/api.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -12,14 +11,7 @@ export class CheatsheetComponent {
   id: any;
   data: any;
   isAuth = false;
-  array = [1, 2, 3, 4];
-  html = `
-  <h1>title</h1> <div>hello</div>
-  `;
-  ts = `
-  console.log("hello world")
-  `;
-
+  search!: string;
   constructor(
     private apiService: ApiService,
     private _Activatedroute: ActivatedRoute
@@ -33,11 +25,22 @@ export class CheatsheetComponent {
     if (sessionStorage.getItem('login') == 'truewai') {
       this.isAuth = true;
     }
+    this.getOriginalData();
+  }
+  getOriginalData() {
     this.apiService.getData(this.id).subscribe((res) => {
-      console.log(res);
-
       this.data = res;
     });
   }
   panelOpenState = false;
+  onSearch(e: any) {
+    const regex = new RegExp(e.target.value, 'i');
+    const filteredArray = this.data.filter(
+      (obj: any) => regex.test(obj.title) || regex.test(obj.description)
+    );
+    this.data = filteredArray;
+    if (!e.target.value) {
+      this.getOriginalData();
+    }
+  }
 }
