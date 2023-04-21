@@ -6,10 +6,10 @@
     <mat-accordion>
       <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" *ngFor="let item of data">
         <mat-expansion-panel-header>
-          <mat-panel-title>
+          <mat-panel-title class="capFirst">
             {{item.title}}
           </mat-panel-title>
-          <mat-panel-description>
+          <mat-panel-description class="capFirst">
             {{item.description}}
           </mat-panel-description>
         </mat-expansion-panel-header>
