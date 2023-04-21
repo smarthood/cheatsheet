@@ -45,6 +45,9 @@ export class AddCodeComponent {
             horizontalPosition: 'end',
             verticalPosition: 'top',
           });
+          this.cheatForm.reset();
+          this.cheatForm.clearValidators();
+          this.cheatForm.updateValueAndValidity();
         })
         .catch((err) => {
           console.log(err);

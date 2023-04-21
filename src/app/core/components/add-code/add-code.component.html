@@ -2,14 +2,14 @@
   <form [formGroup]="cheatForm" fxLayout="column" fxLayoutGap="10px" class="form">
 
     <div class="form-container" fxLayout="row" fxLayout.lt-md="column" fxFlex="100%" fxLayoutGap="10px">
-      <div class="form-field" fxLayout="row" fxLayout.lt-md="column" fxFlex="50%">
+      <div class="form-field" fxLayout="column" fxFlex="30%">
         <label fxFlex="40%">Title</label>
         <mat-form-field appearance="outline" fxFlex="60%">
           <input matInput formControlName="title">
           <mat-error *ngIf="cheatForm.get('title')?.hasError('required')">This Field is Required</mat-error>
         </mat-form-field>
       </div>
-      <div class="form-field" fxLayout="row" fxLayout.lt-md="column" fxFlex="50%">
+      <div class="form-field" fxLayout="column" fxFlex="50%">
         <label fxFlex="40%">Description</label>
         <mat-form-field appearance="outline" fxFlex="60%">
           <input matInput formControlName="description">

@@ -1,8 +1,13 @@
 <div class="main-container">
   <div class="content-container">
-    <mat-form-field>
-      <input matInput placeholder="search...">
-    </mat-form-field>
+    <div class="top-container" fxLayoutAlign="space-between start">
+      <button class="back_btn" mat-icon-button routerLink="/main"><mat-icon>arrow_back</mat-icon></button>
+      <div class="filter">
+        <mat-form-field>
+          <input matInput placeholder="search..." (input)="onSearch($event)">
+        </mat-form-field>
+      </div>
+    </div>
     <mat-accordion>
       <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" *ngFor="let item of data">
         <mat-expansion-panel-header>
@@ -28,8 +33,8 @@
         </mat-tab-group>
       </mat-expansion-panel>
     </mat-accordion>
-    <div class="add-btn" *ngIf="isAuth">
-      <button mat-fab [routerLink]="['/add',id]"><mat-icon>add</mat-icon></button>
-    </div>
   </div>
+</div>
+<div class="add-btn" *ngIf="isAuth">
+  <button mat-fab [routerLink]="['/add',id]"><mat-icon>add</mat-icon></button>
 </div>

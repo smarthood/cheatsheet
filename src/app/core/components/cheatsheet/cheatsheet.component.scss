@@ -10,13 +10,6 @@
     -webkit-backdrop-filter: blur(55px);
     backdrop-filter: blur(55px);
     padding: 20px;
-
-    .add-btn {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      z-index: 100;
-    }
   }
 
 }
@@ -32,4 +25,15 @@
 
 code {
   padding: 10px;
+}
+
+.back_btn {
+  color: white;
+}
+
+.add-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
 }
