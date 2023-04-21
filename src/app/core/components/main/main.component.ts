@@ -20,7 +20,7 @@ export class MainComponent {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.collection = new FormGroup({
-      username: new FormControl(null, Validators.required),
+      name: new FormControl(null, Validators.required),
       password: new FormControl(null, Validators.required),
     });
   }
