@@ -17,6 +17,7 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSelectModule } from '@angular/material/select';
+
 import {
   HighlightModule,
   HIGHLIGHT_OPTIONS,
