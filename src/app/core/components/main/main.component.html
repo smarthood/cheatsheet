@@ -30,17 +30,16 @@
   color="primary"><mat-icon>feedback</mat-icon>Feedback</a>
 
 <ng-template #collectiondialog>
-  <br><div class="dialog">
+  <br>
+  <div class="dialog">
     <form class="collection-input" [formGroup]="collection" mat-dialog-content fxLayout="column">
       <mat-form-field class="collection_input" appearance="outline" fxFlex="90%" style="margin-bottom: 0px">
         <mat-label>Name</mat-label>
         <input matInput placeholder="collection name" formControlName="name">
-        <mat-error *ngIf="collection.get('name')?.hasError('required')">*required</mat-error>
       </mat-form-field>
       <mat-form-field class="collection_input" appearance="outline" fxFlex="90%" style="margin-bottom: 0px">
         <mat-label>Password</mat-label>
         <input matInput placeholder="collection password" formControlName="password">
-        <mat-error *ngIf="collection.get('password')?.hasError('required')">*required</mat-error>
       </mat-form-field>
     </form>
     <div mat-dialog-actions align="center">
