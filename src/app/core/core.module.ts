@@ -23,8 +23,10 @@ import {
   HIGHLIGHT_OPTIONS,
   HighlightOptions,
 } from 'ngx-highlightjs';
+
 @NgModule({
   declarations: [MainComponent, CheatsheetComponent, AddCodeComponent],
+
   imports: [
     CommonModule,
     FlexLayoutModule,

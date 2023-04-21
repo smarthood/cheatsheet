@@ -9,6 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './add-code.component.html',
   styleUrls: ['./add-code.component.scss'],
 })
+
 export class AddCodeComponent {
   ts_code = false;
   id: any;
@@ -54,7 +55,7 @@ export class AddCodeComponent {
         });
     }
   }
-
+  
   add() {
     this.ts_code = true;
   }
