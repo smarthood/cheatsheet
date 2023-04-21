@@ -31,8 +31,8 @@
       </mat-select>
     </div>
     <div>
-      <mat-form-field appearance="outline">
-        <textarea matInput formControlName="fcode" class="code"></textarea>
+      <mat-form-field appearance="outline" class="code">
+        <textarea matInput formControlName="fcode" class="inside"></textarea>
         <!-- <mat-error *ngIf="employeeDetail.get('lastName')?.hasError('required')">{{messages?.Required}}</mat-error> -->
       </mat-form-field>
     </div>
@@ -53,8 +53,8 @@
         </mat-option>
       </mat-select>
       <div>
-        <mat-form-field appearance="outline">
-          <textarea matInput formControlName="scode" class="code"></textarea>
+        <mat-form-field appearance="outline" class="code">
+          <textarea matInput formControlName="scode" class="inside"></textarea>
           <!-- <mat-error *ngIf="employeeDetail.get('lastName')?.hasError('required')">{{messages?.Required}}</mat-error> -->
         </mat-form-field>
       </div>

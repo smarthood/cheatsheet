@@ -25,6 +25,9 @@ export class CheatsheetComponent {
     private _Activatedroute: ActivatedRoute
   ) {
     this.id = this._Activatedroute.snapshot.paramMap.get('id');
+    this._Activatedroute.params.subscribe((res) => {
+      console.log(res);
+    });
   }
   ngOnInit(): void {
     if (sessionStorage.getItem('login') == 'truewai') {
