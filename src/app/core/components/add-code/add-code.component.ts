@@ -27,23 +27,26 @@ export class AddCodeComponent {
   }
   ngOnInit(): void {
     this.cheatForm = new FormGroup({
-      title: new FormControl('null', Validators.required),
-      description: new FormControl('null', Validators.required),
-      core: new FormControl('angular', Validators.required),
-      html: new FormControl('null', Validators.required),
-      ts: new FormControl('null', Validators.required),
+      title: new FormControl(null, Validators.required),
+      description: new FormControl(null, Validators.required),
+      ftype: new FormControl(null, Validators.required),
+      fcode: new FormControl(null, Validators.required),
+      stype: new FormControl(null),
+      scode: new FormControl(null),
     });
   }
-  onClick() {
+  onSubmit() {
     if (this.cheatForm.valid) {
-      this.apiService.postData(this.id, this.cheatForm.value).then(() => {
-        this.snack.open('Data saved successfully');
-      });
+      this.apiService
+        .postData(this.id, this.cheatForm.value)
+        .then(() => {
+          this.snack.open('Data saved successfully');
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   }
-  // onGet() {
-  //   console.log(this.apiService.getData());
-  // }
 
   add() {
     this.ts_code = true;

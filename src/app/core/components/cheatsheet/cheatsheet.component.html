@@ -4,32 +4,32 @@
       <input matInput placeholder="search...">
     </mat-form-field>
     <mat-accordion>
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
-        *ngFor="let item of array">
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" *ngFor="let item of data">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            Table
+            {{item.title}}
           </mat-panel-title>
           <mat-panel-description>
-            code for table using ngfor
+            {{item.description}}
           </mat-panel-description>
         </mat-expansion-panel-header>
         <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" animationDuration="0ms">
-          <mat-tab label="HTML">
+          <mat-tab [label]="item.ftype">
             <button mat-icon-button color="accent" class="copy_btn"
-              [cdkCopyToClipboard]="html"><mat-icon>file_copy</mat-icon></button>
-            <pre><code [highlight]="html"></code></pre>
+              [cdkCopyToClipboard]="item.fcode"><mat-icon>file_copy</mat-icon></button>
+            <pre><code [highlight]="item.fcode"></code></pre>
           </mat-tab>
-          <mat-tab label="TS">
-            <button mat-icon-button class="copy_btn" [cdkCopyToClipboard]="ts"><mat-icon>file_copy</mat-icon></button>
-            <pre><code [highlight]="ts">
+          <mat-tab *ngIf="item.stype" [label]="item.stype">
+            <button mat-icon-button color="accent" class="copy_btn"
+              [cdkCopyToClipboard]="item.scode"><mat-icon>file_copy</mat-icon></button>
+            <pre><code [highlight]="item.scode">
             </code></pre>
           </mat-tab>
         </mat-tab-group>
       </mat-expansion-panel>
     </mat-accordion>
     <div class="add-btn" *ngIf="isAuth">
-      <button mat-fab routerLink="/add"><mat-icon>add</mat-icon></button>
+      <button mat-fab [routerLink]="['/add',id]"><mat-icon>add</mat-icon></button>
     </div>
   </div>
 </div>

@@ -15,7 +15,7 @@ const routes: Routes = [
     path: 'cheatsheet/:id',
     component: CheatsheetComponent,
   },
-  { path: 'add', canActivate: [LoginGuard], component: AddCodeComponent },
+  { path: 'add/:id', canActivate: [LoginGuard], component: AddCodeComponent },
 ];
 
 @NgModule({
