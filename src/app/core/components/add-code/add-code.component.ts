@@ -40,7 +40,11 @@ export class AddCodeComponent {
       this.apiService
         .postData(this.id, this.cheatForm.value)
         .then(() => {
-          this.snack.open('Data saved successfully');
+          this.snack.open('Data saved successfully', 'ok', {
+            duration: 5000,
+            horizontalPosition: 'end',
+            verticalPosition: 'top',
+          });
         })
         .catch((err) => {
           console.log(err);

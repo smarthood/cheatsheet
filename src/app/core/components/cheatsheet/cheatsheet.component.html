@@ -10,7 +10,7 @@
             {{item.title}}
           </mat-panel-title>
           <mat-panel-description class="capFirst">
-            {{item.description}}
+            {{item.description?item.description:"No description"}}
           </mat-panel-description>
         </mat-expansion-panel-header>
         <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" animationDuration="0ms">
