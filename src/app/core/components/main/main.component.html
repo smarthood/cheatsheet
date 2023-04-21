@@ -34,17 +34,14 @@
   <div class="dialog">
     <form class="collection-input" [formGroup]="collection" mat-dialog-content fxLayout="column">
       <mat-form-field class="collection_input" appearance="outline" fxFlex="90%" style="margin-bottom: 0px">
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="collection name" formControlName="name">
+        <input matInput placeholder="Email" formControlName="name">
       </mat-form-field>
       <mat-form-field class="collection_input" appearance="outline" fxFlex="90%" style="margin-bottom: 0px">
-        <mat-label>Password</mat-label>
-        <input matInput placeholder="collection password" formControlName="password">
+        <input matInput placeholder="password" formControlName="password">
       </mat-form-field>
     </form>
-    <div mat-dialog-actions align="center">
-      <button mat-stroked-button mat-dialog-close>Cancel</button>
-      <button mat-raised-button class="my" mat-dialog-close="true">Login</button>
+    <div mat-dialog-actions>
+      <button mat-raised-button class="my" mat-dialog-close="true" (click)="onLogin()">Login</button>
     </div><br>
   </div>
 </ng-template>

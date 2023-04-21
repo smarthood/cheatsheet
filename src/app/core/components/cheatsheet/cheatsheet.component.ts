@@ -22,7 +22,7 @@ export class CheatsheetComponent {
     });
   }
   ngOnInit(): void {
-    if (sessionStorage.getItem('login') == 'truewai') {
+    if (sessionStorage.getItem('currentUserToken')) {
       this.isAuth = true;
     }
     this.getOriginalData();

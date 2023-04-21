@@ -51,13 +51,21 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-
 .form .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
   padding-bottom: 5px;
   padding-top: 8px;
 }
 
 .form .mat-mdc-form-field-flex {
+  height: 35px !important;
+}
+
+.collection-input .mat-mdc-text-field-wrapper.mdc-text-field--outlined .mat-mdc-form-field-infix {
+  padding-bottom: 5px;
+  padding-top: 8px;
+}
+
+.collection-input .mat-mdc-form-field-flex {
   height: 35px !important;
 }
 
