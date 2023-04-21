@@ -19,9 +19,7 @@ export class LoginGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    if (sessionStorage.getItem('login') == 'truewai') {
-      console.log('welcome admin');
-
+    if (sessionStorage.getItem('currentUserToken')) {
       return true;
     } else {
       console.log('not allowed');
