@@ -9,7 +9,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './add-code.component.html',
   styleUrls: ['./add-code.component.scss'],
 })
-
 export class AddCodeComponent {
   ts_code = false;
   id: any;
@@ -29,7 +28,7 @@ export class AddCodeComponent {
   ngOnInit(): void {
     this.cheatForm = new FormGroup({
       title: new FormControl(null, Validators.required),
-      description: new FormControl(null, Validators.required),
+      description: new FormControl(null),
       ftype: new FormControl(null, Validators.required),
       fcode: new FormControl(null, Validators.required),
       stype: new FormControl(null),
@@ -58,7 +57,7 @@ export class AddCodeComponent {
   add() {
     this.ts_code = true;
   }
-  canDeactivate() :boolean {
-   return this.cheatForm ? !this.cheatForm.dirty : true;
+  canDeactivate(): boolean {
+    return this.cheatForm ? !this.cheatForm.dirty : true;
   }
 }
