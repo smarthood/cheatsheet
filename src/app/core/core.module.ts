@@ -18,6 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {
   HighlightModule,
   HIGHLIGHT_OPTIONS,
@@ -45,6 +46,7 @@ import {
     MatDividerModule,
     MatSelectModule,
     MatDialogModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     {
