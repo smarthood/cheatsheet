@@ -55,8 +55,12 @@ export class AddCodeComponent {
         });
     }
   }
-  
+
   add() {
     this.ts_code = true;
+  }
+
+  canDeactivate() :boolean {
+   return this.cheatForm ? !this.cheatForm.dirty : true;
   }
 }

@@ -24,9 +24,10 @@ import {
   HIGHLIGHT_OPTIONS,
   HighlightOptions,
 } from 'ngx-highlightjs';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
-  declarations: [MainComponent, CheatsheetComponent, AddCodeComponent],
+  declarations: [MainComponent, CheatsheetComponent, AddCodeComponent, DialogComponent],
 
   imports: [
     CommonModule,
