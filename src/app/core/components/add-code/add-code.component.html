@@ -5,7 +5,7 @@
         <label fxFlex="40%">Title</label>
         <mat-form-field appearance="outline" fxFlex="60%">
           <input matInput formControlName="title">
-          <mat-error *ngIf="cheatForm.get('title')?.hasError('required')">This Field is Required</mat-error>
+          <mat-error *ngIf="cheatForm.get('title')?.hasError('required')">*This field is required</mat-error>
         </mat-form-field>
       </div>
       <div class="form-field" fxLayout="column" fxFlex="50%">
