@@ -19,7 +19,6 @@
           </mat-panel-title>
           <mat-panel-description class="capFirst">
             {{item.description?item.description:"No description"}}
-            <button mat-icon-button (click)="onDelete(item.id)" *ngIf="isAuth"><mat-icon>delete</mat-icon></button>
           </mat-panel-description>
         </mat-expansion-panel-header>
         <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" animationDuration="0ms">
@@ -27,6 +26,7 @@
             <button mat-icon-button color="accent" class="copy_btn"
               [cdkCopyToClipboard]="item.fcode"><mat-icon>file_copy</mat-icon></button>
             <pre><code [highlight]="item.fcode"></code></pre>
+            <button mat-icon-button (click)="onDelete(item.id)" *ngIf="isAuth"><mat-icon>delete</mat-icon></button>
           </mat-tab>
           <mat-tab *ngIf="item.stype" [label]="item.stype">
             <button mat-icon-button color="accent" class="copy_btn"
