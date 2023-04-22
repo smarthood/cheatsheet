@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../../services/API/api.service';
 import { ActivatedRoute } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-cheatsheet',
@@ -14,7 +15,8 @@ export class CheatsheetComponent {
   search!: string;
   constructor(
     private apiService: ApiService,
-    private _Activatedroute: ActivatedRoute
+    private _Activatedroute: ActivatedRoute,
+    private snack: MatSnackBar
   ) {
     this.id = this._Activatedroute.snapshot.paramMap.get('id');
     this._Activatedroute.params.subscribe((res) => {
@@ -42,5 +44,14 @@ export class CheatsheetComponent {
     if (!e.target.value) {
       this.getOriginalData();
     }
+  }
+  onDelete(element_id: any) {
+    this.apiService.deleteData(element_id, this.id).then(() => {
+      this.snack.open('Data deleted successfully', 'ok', {
+        duration: 5000,
+        horizontalPosition: 'end',
+        verticalPosition: 'top',
+      });
+    });
   }
 }

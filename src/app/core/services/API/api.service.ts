@@ -4,6 +4,8 @@ import {
   Firestore,
   collection,
   collectionData,
+  deleteDoc,
+  doc,
   updateDoc,
 } from '@angular/fire/firestore';
 import { addDoc } from 'firebase/firestore';
@@ -27,5 +29,8 @@ export class ApiService {
     //   console.log(this.data);
     // });
     return collectionData(collection(this.fs, id)) as Observable<any[]>;
+  }
+  async deleteData(ele_id: any, page_id: any): Promise<void> {
+    await deleteDoc(doc(this.fs, page_id + '/' + ele_id));
   }
 }
