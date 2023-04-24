@@ -13,10 +13,6 @@ export class AddCodeComponent {
   ts_code = false;
   id: any;
   cheatForm!: FormGroup;
-  data = {
-    title: 'smart',
-    data: 'kajdhjhdj dfcjjf',
-  };
 
   constructor(
     private apiService: ApiService,
