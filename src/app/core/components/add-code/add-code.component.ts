@@ -12,6 +12,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class AddCodeComponent {
   ts_code = false;
   id: any;
+  update = false;
+  dataId: any;
   cheatForm!: FormGroup;
   constructor(
     private apiService: ApiService,
@@ -19,9 +21,9 @@ export class AddCodeComponent {
     private _Activatedroute: ActivatedRoute
   ) {
     this._Activatedroute.params.subscribe((res) => {
-      console.log(res);
+      this.id = res['id'];
+      this.dataId = res['dataId'];
     });
-    this.id = this._Activatedroute.snapshot.paramMap.get('id');
   }
   ngOnInit(): void {
     this.cheatForm = new FormGroup({
@@ -32,31 +34,44 @@ export class AddCodeComponent {
       stype: new FormControl(null),
       scode: new FormControl(null),
     });
+    if (this.dataId) {
+      this.update = true;
+      this.apiService.getSpecificData(this.id, this.dataId).subscribe((res) => {
+        console.log(res);
+
+        this.cheatForm.patchValue(res[0]);
+      });
+    }
   }
   onSubmit() {
-    if (this.cheatForm.valid) {
-      this.apiService
-        .postData(this.id, this.cheatForm.value)
-        .then(() => {
-          this.snack.open('Data saved successfully', 'ok', {
-            duration: 5000,
-            horizontalPosition: 'end',
-            verticalPosition: 'top',
+    if (!this.update) {
+      if (this.cheatForm.valid) {
+        this.apiService
+          .postData(this.id, this.cheatForm.value)
+          .then(() => {
+            this.snack.open('Data saved successfully', 'ok', {
+              duration: 5000,
+              horizontalPosition: 'end',
+              verticalPosition: 'top',
+            });
+            this.cheatForm.reset();
+            this.cheatForm.clearValidators();
+            this.cheatForm.updateValueAndValidity();
+          })
+          .catch((err) => {
+            console.log(err);
           });
-          this.cheatForm.reset();
-          this.cheatForm.clearValidators();
-          this.cheatForm.updateValueAndValidity();
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      }
+    } else {
+      this.cheatForm.value.id = this.dataId;
+      this.apiService.updateData(this.cheatForm.value);
     }
   }
   add() {
     this.ts_code = true;
   }
 
-  canDeactivate() :boolean {
-   return this.cheatForm ? !this.cheatForm.dirty : true;
+  canDeactivate(): boolean {
+    return this.cheatForm ? !this.cheatForm.dirty : true;
   }
 }

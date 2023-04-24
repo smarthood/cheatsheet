@@ -6,9 +6,10 @@ import {
   collectionData,
   deleteDoc,
   doc,
+  query,
   updateDoc,
 } from '@angular/fire/firestore';
-import { addDoc } from 'firebase/firestore';
+import { addDoc, where } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
@@ -32,5 +33,13 @@ export class ApiService {
   }
   async deleteData(ele_id: any, page_id: any): Promise<void> {
     await deleteDoc(doc(this.fs, page_id + '/' + ele_id));
+  }
+  getSpecificData(id: any, dataId: any) {
+    return collectionData(
+      query(collection(this.fs, id), where('id', '==', dataId))
+    ) as Observable<any[]>;
+  }
+  updateData(id: any) {
+    // await updateDoc(data_ref, 'id', data_ref.id);
   }
 }
