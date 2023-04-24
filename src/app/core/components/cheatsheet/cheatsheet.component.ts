@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../../services/API/api.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DialogService } from '../../services/dialog/dialog.service';
 
@@ -18,7 +18,8 @@ export class CheatsheetComponent {
     private apiService: ApiService,
     private _Activatedroute: ActivatedRoute,
     private snack: MatSnackBar,
-    private dialogservice: DialogService
+    private dialogservice: DialogService,
+    private router: Router
   ) {
     this.id = this._Activatedroute.snapshot.paramMap.get('id');
     this._Activatedroute.params.subscribe((res) => {
@@ -64,5 +65,7 @@ export class CheatsheetComponent {
       }
     });
   }
-  onEdit(id: any) {}
+  onEdit(dataId: any) {
+    this.router.navigate(['/add', this.id, dataId]);
+  }
 }
