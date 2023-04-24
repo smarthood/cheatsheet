@@ -13,12 +13,14 @@ export class AddCodeComponent {
   ts_code = false;
   id: any;
   cheatForm!: FormGroup;
-
   constructor(
     private apiService: ApiService,
     private snack: MatSnackBar,
     private _Activatedroute: ActivatedRoute
   ) {
+    this._Activatedroute.params.subscribe((res) => {
+      console.log(res);
+    });
     this.id = this._Activatedroute.snapshot.paramMap.get('id');
   }
   ngOnInit(): void {
