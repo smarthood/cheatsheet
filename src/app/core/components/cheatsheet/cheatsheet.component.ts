@@ -18,7 +18,7 @@ export class CheatsheetComponent {
     private apiService: ApiService,
     private _Activatedroute: ActivatedRoute,
     private snack: MatSnackBar,
-    private dialogservice : DialogService
+    private dialogservice: DialogService
   ) {
     this.id = this._Activatedroute.snapshot.paramMap.get('id');
     this._Activatedroute.params.subscribe((res) => {
@@ -48,16 +48,21 @@ export class CheatsheetComponent {
     }
   }
   onDelete(element_id: any) {
-    const dialogref = this.dialogservice.opendialog('You have unsaved changes!...','Are you sure want to move from here?');
-    dialogref.afterClosed().subscribe(response => {
-      if(response){
-    this.apiService.deleteData(element_id, this.id).then(() => {
-      this.snack.open('Data deleted successfully', 'ok', {
-        duration: 5000,
-        horizontalPosition: 'end',
-        verticalPosition: 'top',
-      });
+    const dialogref = this.dialogservice.opendialog(
+      'You have unsaved changes!...',
+      'Are you sure want to move from here?'
+    );
+    dialogref.afterClosed().subscribe((response) => {
+      if (response) {
+        this.apiService.deleteData(element_id, this.id).then(() => {
+          this.snack.open('Data deleted successfully', 'ok', {
+            duration: 5000,
+            horizontalPosition: 'end',
+            verticalPosition: 'top',
+          });
+        });
+      }
     });
-  }})
-}
+  }
+  onEdit(id: any) {}
 }
