@@ -22,6 +22,12 @@ const routes: Routes = [
     component: AddCodeComponent,
     canDeactivate: [CanDeactivateGuard],
   },
+  {
+    path: 'add/:id',
+    canActivate: [LoginGuard],
+    component: AddCodeComponent,
+    canDeactivate: [CanDeactivateGuard],
+  },
 ];
 
 @NgModule({
