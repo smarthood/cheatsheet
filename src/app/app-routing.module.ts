@@ -27,7 +27,7 @@ const routes: Routes = [
     canActivate: [LoginGuard],
     component: AddCodeComponent,
     canDeactivate: [CanDeactivateGuard],
-  },
+  }
 ];
 
 @NgModule({
