@@ -27,11 +27,12 @@ const routes: Routes = [
     canActivate: [LoginGuard],
     component: AddCodeComponent,
     canDeactivate: [CanDeactivateGuard],
-  },
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
+
 export class AppRoutingModule {}
