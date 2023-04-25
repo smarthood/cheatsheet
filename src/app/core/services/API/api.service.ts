@@ -41,5 +41,6 @@ export class ApiService {
   }
   updateData(id: any) {
     // await updateDoc(data_ref, 'id', data_ref.id);
+    updateDoc;
   }
 }
