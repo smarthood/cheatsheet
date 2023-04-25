@@ -33,9 +33,16 @@
             <pre><code [highlight]="item.scode">
             </code></pre>
           </mat-tab>
+          <mat-tab *ngIf="item.ttype" [label]="item.ttype">
+            <button mat-icon-button color="accent" class="copy_btn"
+              [cdkCopyToClipboard]="item.tcode"><mat-icon>file_copy</mat-icon></button>
+            <pre><code [highlight]="item.tcode">
+            </code></pre>
+          </mat-tab>
         </mat-tab-group>
         <button mat-icon-button (click)="onDelete(item.id)" *ngIf="isAuth"><mat-icon>delete</mat-icon></button>
-        <button mat-icon-button (click)="onEdit(item.id)" [routerLink]="[ '/main/form', 'edit' ,id ]" *ngIf="isAuth"><mat-icon>edit</mat-icon></button>
+        <button mat-icon-button (click)="onEdit(item.id)" [routerLink]="[ '/main/form', 'edit' ,id ]"
+          *ngIf="isAuth"><mat-icon>edit</mat-icon></button>
       </mat-expansion-panel>
     </mat-accordion>
   </div>

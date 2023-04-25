@@ -11,6 +11,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AddCodeComponent {
   ts_code = false;
+  css_code = false;
   id: any;
   update = false;
   dataId: any;
@@ -33,6 +34,8 @@ export class AddCodeComponent {
       fcode: new FormControl(null, Validators.required),
       stype: new FormControl(null),
       scode: new FormControl(null),
+      ttype: new FormControl(null),
+      tcode: new FormControl(null),
     });
     if (this.dataId) {
       this.update = true;
@@ -69,6 +72,9 @@ export class AddCodeComponent {
   }
   add() {
     this.ts_code = true;
+  }
+  add_two() {
+    this.css_code = true;
   }
 
   canDeactivate(): boolean {

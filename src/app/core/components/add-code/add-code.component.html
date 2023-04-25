@@ -70,6 +70,34 @@
         </mat-form-field>
       </div>
     </div>
+    <button *ngIf="!css_code" mat-raised-button color="primary" (click)="add_two()">
+      <mat-icon>add</mat-icon>ADD CODE
+    </button>
+    <div *ngIf=" css_code">
+      <mat-select placeholder="select code" name="item" formControlName="ttype">
+        <mat-option value="HTML">
+          Html
+        </mat-option>
+        <mat-option value="TS">
+          Type Script
+        </mat-option>
+        <mat-option value="CSS">
+          CSS
+        </mat-option>
+        <mat-option value="NODE">
+          Node js
+        </mat-option>
+        <mat-option value="JSX">
+          REACT JS
+        </mat-option>
+      </mat-select>
+      <div>
+        <mat-form-field appearance="outline" class="code">
+          <textarea matInput formControlName="tcode" class="inside"></textarea>
+          <!-- <mat-error *ngIf="employeeDetail.get('lastName')?.hasError('required')">{{messages?.Required}}</mat-error> -->
+        </mat-form-field>
+      </div>
+    </div>
     <mat-divider>
     </mat-divider>
     <button mat-raised-button color="primary" (click)="onSubmit()">SUBMIT</button>
