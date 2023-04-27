@@ -29,3 +29,19 @@
 .dialog {
   padding-inline: 10px;
 }
+
+.count {
+  font-size: 25px;
+  color: gray;
+}
+
+.spaces {
+  flex: 1 1 auto;
+}
+
+.arrow {
+  transform: rotate(80deg);
+  position: absolute;
+  right: 30px;
+  border: 10px;
+}

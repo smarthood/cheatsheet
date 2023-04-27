@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../../services/API/api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../../services/Auth/auth.service';
-
+import { DialogService } from '../../services/dialog/dialog.service';
 @Component({
   selector: 'app-feedback',
   templateUrl: './feedback.component.html',
@@ -15,7 +15,8 @@ export class FeedbackComponent {
   constructor(
     private apiService: ApiService,
     private snack: MatSnackBar,
-    public authService: AuthService
+    public authService: AuthService,
+    private dialogservice: DialogService
   ) {}
   ngOnInit(): void {
     this.feedback = new FormGroup({
@@ -46,5 +47,22 @@ export class FeedbackComponent {
           console.log(err);
         });
     }
+  }
+  onDelete(element_id: any) {
+    const dialogref = this.dialogservice.opendialog(
+      'You have unsaved changes!...',
+      'Are you sure want to move from here?'
+    );
+    dialogref.afterClosed().subscribe((response: any) => {
+      if (response) {
+        this.apiService.deleteData(element_id, 'feedback').then(() => {
+          this.snack.open('Data deleted successfully', 'ok', {
+            duration: 5000,
+            horizontalPosition: 'end',
+            verticalPosition: 'top',
+          });
+        });
+      }
+    });
   }
 }

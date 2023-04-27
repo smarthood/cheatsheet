@@ -16,10 +16,13 @@
       </div>
     </form>
   </div>
-  <div class="view-msg" fxFlex="100%" fxLayoutAlign="center center" *ngIf="authService.isAuth()">
+  <div class="view-msg" fxLayout="column" fxFlex="100%" fxLayoutAlign="center" *ngIf="authService.isAuth()"
+    fxLayoutGap="5px">
+    <h1>Queries</h1>
     <div class="msg" fxFlex.lt-md="100%" fxLayoutAlign="space-between center" fxFlex="50%" *ngFor="let i of msg">
       <span class="left">{{i.name}}</span>
       <span class="right">{{i.Message}}</span>
+      <button mat-icon-button (click)="onDelete(i.id)"><mat-icon>delete</mat-icon></button>
     </div>
   </div>
 </div>
