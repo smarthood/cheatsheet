@@ -70,7 +70,7 @@ export class MainComponent {
   onClick() {
     this.route.navigate(['/feedback']);
   }
-  Logout(){
+  Logout() {
     sessionStorage.removeItem('currentUserToken');
   }
 }
