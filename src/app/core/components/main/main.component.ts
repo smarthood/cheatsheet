@@ -22,7 +22,7 @@ export class MainComponent {
   }
   constructor(
     private dialog: MatDialog,
-    private auth: AuthService,
+    public auth: AuthService,
     private snack: MatSnackBar,
     private route: Router
   ) {}
@@ -66,5 +66,8 @@ export class MainComponent {
   }
   onClick() {
     this.route.navigate(['/feedback']);
+  }
+  Logout(){
+    sessionStorage.removeItem('currentUserToken');
   }
 }
