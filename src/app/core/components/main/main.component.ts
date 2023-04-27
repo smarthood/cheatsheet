@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from '../../services/Auth/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -22,7 +23,8 @@ export class MainComponent {
   constructor(
     private dialog: MatDialog,
     private auth: AuthService,
-    private snack: MatSnackBar
+    private snack: MatSnackBar,
+    private route: Router
   ) {}
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -61,5 +63,8 @@ export class MainComponent {
   }
   displayErrors(err: any) {
     return err['code'].slice(5);
+  }
+  onClick() {
+    this.route.navigate(['/feedback']);
   }
 }

@@ -1,1 +1,25 @@
-<p>feedback works!</p>
+<div class="container">
+  <div class="collection-input" fxLayoutAlign="center center" *ngIf="!authService.isAuth()">
+    <form [formGroup]="feedback" fxLayout="column" fxFlex.lt-md="100%" fxFlex="50%">
+      <h1>Send Feedback</h1><br><br>
+      <mat-form-field class="collection_input" appearance="outline" fxFlex="90%" style="margin-bottom: 0px">
+        <input matInput placeholder="Name" formControlName="name">
+      </mat-form-field>
+      <div>
+        <mat-form-field appearance="outline" class="code">
+          <textarea matInput placeholder="Type Message...." formControlName="Message" class="inside"></textarea>
+          <!-- <mat-error *ngIf="employeeDetail.get('lastName')?.hasError('required')">{{messages?.Required}}</mat-error> -->
+        </mat-form-field>
+      </div>
+      <div mat-dialog-actions>
+        <button class="my" mat-raised-button (click)="send_message()">Send Feedback</button>
+      </div>
+    </form>
+  </div>
+  <div class="view-msg" fxFlex="100%" fxLayoutAlign="center center" *ngIf="authService.isAuth()">
+    <div class="msg" fxFlex.lt-md="100%" fxLayoutAlign="space-between center" fxFlex="50%" *ngFor="let i of msg">
+      <span class="left">{{i.name}}</span>
+      <span class="right">{{i.Message}}</span>
+    </div>
+  </div>
+</div>

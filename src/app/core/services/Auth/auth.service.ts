@@ -22,4 +22,10 @@ export class AuthService {
       console.log('success')
     );
   }
+  isAuth(): boolean {
+    if (sessionStorage.getItem('currentUserToken')) {
+      return true;
+    }
+    return false;
+  }
 }
