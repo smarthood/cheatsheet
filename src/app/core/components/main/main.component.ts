@@ -17,8 +17,11 @@ export class MainComponent {
   @ViewChild('collectiondialog') collectiondialog!: TemplateRef<any>;
   @HostListener('window:keydown', ['$event']) onKeyDown(e: any) {
     if (e.shiftKey && e.keyCode == 76) {
-      this.dialog.open(this.collectiondialog);
+      this.openLogin();
     }
+  }
+  openLogin() {
+    this.dialog.open(this.collectiondialog);
   }
   constructor(
     private dialog: MatDialog,
