@@ -16,6 +16,13 @@ export class AddCodeComponent {
   update = false;
   dataId: any;
   cheatForm!: FormGroup;
+  language = [
+    { name: 'HTML', lang: 'HTML' },
+    { name: 'Type Script', lang: 'TS' },
+    { name: 'CSS', lang: 'CSS' },
+    { name: 'Node js', lang: 'NODE' },
+    { name: 'REACT JS', lang: 'JSX' },
+  ];
   constructor(
     private apiService: ApiService,
     private snack: MatSnackBar,
@@ -41,12 +48,13 @@ export class AddCodeComponent {
       this.update = true;
       this.apiService.getSpecificData(this.id, this.dataId).subscribe((res) => {
         console.log(res);
-
         this.cheatForm.patchValue(res[0]);
       });
     }
   }
   onSubmit() {
+    console.log('value', this.cheatForm.value);
+    console.log(this.cheatForm.valid);
     if (!this.update) {
       if (this.cheatForm.valid) {
         this.apiService

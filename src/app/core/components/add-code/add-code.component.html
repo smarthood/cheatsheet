@@ -75,20 +75,8 @@
     </button>
     <div *ngIf=" css_code">
       <mat-select placeholder="select code" name="item" formControlName="ttype">
-        <mat-option value="HTML">
-          Html
-        </mat-option>
-        <mat-option value="TS">
-          Type Script
-        </mat-option>
-        <mat-option value="CSS">
-          CSS
-        </mat-option>
-        <mat-option value="NODE">
-          Node js
-        </mat-option>
-        <mat-option value="JSX">
-          REACT JS
+        <mat-option [value]="i.lang" *ngFor="let i of language">
+          {{i.name}}
         </mat-option>
       </mat-select>
       <div>
