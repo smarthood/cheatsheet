@@ -26,9 +26,10 @@ import {
 } from 'ngx-highlightjs';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
+import { PhaseiiComponent } from './components/phaseii/phaseii.component';
 
 @NgModule({
-  declarations: [MainComponent, CheatsheetComponent, AddCodeComponent, DialogComponent, FeedbackComponent],
+  declarations: [MainComponent, CheatsheetComponent, AddCodeComponent, DialogComponent, FeedbackComponent, PhaseiiComponent],
 
   imports: [
     CommonModule,
