@@ -11,6 +11,9 @@
     <span fxLayoutAlign="center center" *ngIf="!data">
       <mat-spinner>
       </mat-spinner></span>
+    <span fxLayoutAlign="center center" *ngIf=" data && data.length==0">
+      No Data Found
+    </span>
     <mat-accordion *ngIf="data">
       <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" *ngFor="let item of data">
         <mat-expansion-panel-header>
