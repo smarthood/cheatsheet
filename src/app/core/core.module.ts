@@ -27,9 +27,10 @@ import {
 import { DialogComponent } from './components/dialog/dialog.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { PhaseiiComponent } from './components/phaseii/phaseii.component';
+import { JsonComponent } from './components/json/json.component';
 
 @NgModule({
-  declarations: [MainComponent, CheatsheetComponent, AddCodeComponent, DialogComponent, FeedbackComponent, PhaseiiComponent],
+  declarations: [MainComponent, CheatsheetComponent, AddCodeComponent, DialogComponent, FeedbackComponent, PhaseiiComponent, JsonComponent],
 
   imports: [
     CommonModule,

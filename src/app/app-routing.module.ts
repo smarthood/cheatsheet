@@ -7,6 +7,7 @@ import { AddCodeComponent } from './core/components/add-code/add-code.component'
 import { CanDeactivateGuard } from './core/services/Guard/can-deactivate.guard';
 import { FeedbackComponent } from './core/components/feedback/feedback.component';
 import { PhaseiiComponent } from './core/components/phaseii/phaseii.component';
+import { JsonComponent } from './core/components/json/json.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'main', pathMatch: 'full' },
@@ -35,10 +36,11 @@ const routes: Routes = [
     canDeactivate: [CanDeactivateGuard],
   },
   { path: 'feedback', component: FeedbackComponent },
+  { path: 'json', component: JsonComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

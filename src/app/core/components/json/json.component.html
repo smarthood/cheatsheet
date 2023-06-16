@@ -1,0 +1,41 @@
+<mat-tab-group>
+  <mat-tab label="Default page">
+    <div class="default" fxLayout="row">
+      <div class="left" fxFlex="50%">
+        <form [formGroup]="dynamicForm">
+          <div formArrayName="sections">
+            <div *ngFor="let section of sections.controls; let i = index">
+              <div [formGroupName]="i">
+                <h2>{{ section.value.sectionName }}</h2>
+                <div formGroupName="details">
+                  <input formControlName="title" placeholder="Title" />
+                  <input formControlName="subtitle" placeholder="Subtitle" />
+                  <div formArrayName="pageData">
+                    <div>
+                      <div>
+                        <input formControlName="image" placeholder="Image" />
+                        <input formControlName="color" placeholder="Color" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="right" fxFlex="50%">
+        <button mat-icon-button color="accent" class="copy_btn"
+          [cdkCopyToClipboard]="getObj()"><mat-icon>file_copy</mat-icon>
+        </button>
+        <pre><code [highlight]="getObj()"></code></pre>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Page Editor">
+    <div class="editor" fxLayout="row">
+      <div class="left" fxFlex="50%"></div>
+      <div class="right" fxFlex="50%"></div>
+    </div>
+  </mat-tab>
+</mat-tab-group>
