@@ -19,6 +19,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatStepperModule } from '@angular/material/stepper';
 import {
   HighlightModule,
   HIGHLIGHT_OPTIONS,
@@ -51,6 +52,7 @@ import { JsonComponent } from './components/json/json.component';
     MatSelectModule,
     MatDialogModule,
     MatProgressSpinnerModule,
+    MatStepperModule
   ],
   providers: [
     {
@@ -66,4 +68,4 @@ import { JsonComponent } from './components/json/json.component';
     },
   ],
 })
-export class CoreModule {}
+export class CoreModule { }

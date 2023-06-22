@@ -7,57 +7,56 @@ import { FormArray, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./json.component.scss']
 })
 export class JsonComponent {
-  code = { helo: "world" }
   dynamicForm!: FormGroup;
-  getObj() {
-    return JSON.stringify(this.code)
-  }
+  display = "click generate to display!!!"
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
     this.dynamicForm = new FormGroup({
       sections: new FormArray([
       ])
     })
-    const jsonData: any = []; // Replace `yourJsonData` with the actual JSON data
-    this.populateForm(jsonData);
+    this.createSection(1)
   }
-
-  get sections(): FormArray {
-    return this.dynamicForm.get('sections') as FormArray;
+  createSection(i: number) {
+    (this.dynamicForm.get('sections') as FormArray).push(new FormGroup({
+      sectionId: new FormControl(i),
+      sectionName: new FormControl(null),
+      isExistingComponent: new FormControl(true),
+      details: new FormControl(null),
+      selectorDetails: new FormControl(null),
+      sampleData: new FormControl(null)
+    }))
   }
-
-  getPageDataControls(section: FormGroup): FormArray {
-    return section.get('details.pageData') as FormArray;
+  getControls() {
+    return (this.dynamicForm.get('sections') as FormArray).controls
   }
+  getControl(i: number) {
+    return (this.dynamicForm.get('sections') as FormArray).controls[i]
+  }
+  convertStringToObject(details: string): any {
+    const trimmedDetails = details.trim();
+    const keyValuePairs = trimmedDetails.split(',');
 
-  populateForm(jsonData: any[]) {
-    jsonData.forEach((section) => {
-      const sectionGroup = new FormGroup({
-        sectionId: new FormControl(section.sectionId),
-        sectionName: new FormControl(section.sectionName),
-        isExistingComponent: new FormControl(section.isExistingComponent),
-        sampleData: new FormControl(section.sampleData),
-        details: new FormGroup({
-          title: new FormControl(section.details.title),
-          subtitle: new FormControl(section.details.subtitle),
-          pageData: new FormArray([]),
-        }),
-      });
+    const obj: any = {};
 
-      if (section.details.pageData) {
-        const pageDataArray = sectionGroup.get('details.pageData') as FormArray;
-        section.details.pageData.forEach((pageData: any) => {
-          const pageDataGroup = new FormGroup({
-            image: new FormControl(pageData.image),
-            color: new FormControl(pageData.color),
-          });
-          pageDataArray.push(pageDataGroup);
-        });
-      }
-
-      this.sections.push(sectionGroup);
+    keyValuePairs.forEach(pair => {
+      const [key, value] = pair.split(':');
+      const trimmedValue = value.replace(/"/g, '').trim();
+      obj[key] = trimmedValue;
     });
+    console.log(obj);
+
+    (this.dynamicForm.get('sections') as FormArray).at(0).value['details'] = obj
+  }
+  getObj() {
+    if ((this.dynamicForm.get('sections') as FormArray).at(0).value['details']) {
+      this.convertStringToObject((this.dynamicForm.get('sections') as FormArray).at(0).value['details'])
+    }
+    this.display = JSON.stringify(this.dynamicForm.value['sections'], null, 2)
+  }
+  onEnterPressed(event: any): void {
+    // Prevent the default behavior of the "Enter" key (e.g., line break)
+    event.preventDefault();
+    alert("Don't type in next line")
   }
 }
 

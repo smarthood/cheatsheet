@@ -3,32 +3,44 @@
     <div class="default" fxLayout="row">
       <div class="left" fxFlex="50%">
         <form [formGroup]="dynamicForm">
-          <div formArrayName="sections">
-            <div *ngFor="let section of sections.controls; let i = index">
+          <mat-stepper orientation="vertical" #stepper formArrayName="sections">
+            <mat-step [stepControl]="getControl(i)" *ngFor="let section of getControls(); let i = index">
               <div [formGroupName]="i">
-                <h2>{{ section.value.sectionName }}</h2>
-                <div formGroupName="details">
-                  <input formControlName="title" placeholder="Title" />
-                  <input formControlName="subtitle" placeholder="Subtitle" />
-                  <div formArrayName="pageData">
-                    <div>
-                      <div>
-                        <input formControlName="image" placeholder="Image" />
-                        <input formControlName="color" placeholder="Color" />
-                      </div>
-                    </div>
-                  </div>
+                <ng-template matStepLabel>section</ng-template>
+                <div fxLayoutGap="10px">
+                  <mat-label fxFlex="50%">Section ID</mat-label>
+                  <input fxFlex="50%" matInput type="number" formControlName="sectionId" fxFlex="15%">
+                </div><br>
+                <div fxLayoutGap="10px">
+                  <mat-label fxFlex="50%">Section Name</mat-label>
+                  <input fxFlex="50%" matInput formControlName="sectionName">
+                </div><br>
+                <div fxLayoutGap="10px" fxLayout="column">
+                  <mat-label>Details</mat-label>
+                  <textarea placeholder="Ex: title:'this is a title',subtitle:'this is a subtitle'"
+                    (keydown.enter)="onEnterPressed($event)" matInput formControlName="details"></textarea>
+                </div>
+                <div fxLayoutGap="10px" fxLayout="column">
+                  <mat-label>Selector Details</mat-label>
+                  <textarea (keydown.enter)="onEnterPressed($event)" matInput
+                    formControlName="selectorDetails"></textarea>
+                </div>
+                <div fxLayoutGap="10px" fxLayout="column">
+                  <mat-label>Sample Data</mat-label>
+                  <textarea (keydown.enter)="onEnterPressed($event)" matInput formControlName="sampleData"></textarea>
                 </div>
               </div>
-            </div>
-          </div>
+            </mat-step>
+          </mat-stepper>
+          <button mat-raised-button (click)="createSection(getControls().length+1)">ADD ONE</button>
         </form>
+        <button mat-raised-button (click)="getObj()">GENERATE</button>
       </div>
       <div class="right" fxFlex="50%">
         <button mat-icon-button color="accent" class="copy_btn"
-          [cdkCopyToClipboard]="getObj()"><mat-icon>file_copy</mat-icon>
+          [cdkCopyToClipboard]="display"><mat-icon>file_copy</mat-icon>
         </button>
-        <pre><code [highlight]="getObj()"></code></pre>
+        <pre><code [highlight]="display"></code></pre>
       </div>
     </div>
   </mat-tab>
@@ -39,3 +51,33 @@
     </div>
   </mat-tab>
 </mat-tab-group>
+
+
+
+
+<!-- <mat-stepper orientation="vertical" #stepper>
+  <mat-step [stepControl]="i">
+    <div [formGroupName]="i">
+      <div fxLayoutGap="10px">
+        <mat-label>Section ID</mat-label>
+        <input matInput type="number" formControlName="sectionId" fxFlex="5%">
+      </div>
+      <div fxLayoutGap="10px">
+        <mat-label>Section Name</mat-label>
+        <input matInput formControlName="sectionName">
+      </div>
+      <div fxLayoutGap="10px">
+        <mat-label>Details</mat-label>
+        <textarea matInput formControlName="details"></textarea>
+      </div>
+      <div fxLayoutGap="10px">
+        <mat-label>Selector Details</mat-label>
+        <textarea matInput formControlName="selectorDetails"></textarea>
+      </div>
+      <div fxLayoutGap="10px">
+        <mat-label>Selector Details</mat-label>
+        <textarea matInput formControlName="sampleData"></textarea>
+      </div>
+    </div>
+  </mat-step>
+</mat-stepper> -->
