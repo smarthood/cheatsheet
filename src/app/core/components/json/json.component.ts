@@ -23,7 +23,7 @@ export class JsonComponent {
       isExistingComponent: new FormControl(true),
       details: new FormControl(null),
       selectorDetails: new FormControl(null),
-      sampleData: new FormControl(null)
+      sampleData: new FormControl({})
     }))
   }
   getControls() {
@@ -45,13 +45,15 @@ export class JsonComponent {
     });
     console.log(obj);
 
-    (this.dynamicForm.get('sections') as FormArray).at(0).value['details'] = obj
+    return obj
   }
   getObj() {
+    const temp = (this.dynamicForm.get('sections') as FormArray).at(0).value['details']
     if ((this.dynamicForm.get('sections') as FormArray).at(0).value['details']) {
-      this.convertStringToObject((this.dynamicForm.get('sections') as FormArray).at(0).value['details'])
+      (this.dynamicForm.get('sections') as FormArray).at(0).value['details'] = this.convertStringToObject((this.dynamicForm.get('sections') as FormArray).at(0).value['details'])
     }
-    this.display = JSON.stringify(this.dynamicForm.value['sections'], null, 2)
+    this.display = JSON.stringify(this.dynamicForm.value['sections'], null, 2);
+    (this.dynamicForm.get('sections') as FormArray).at(0).value['details'] = temp
   }
   onEnterPressed(event: any): void {
     // Prevent the default behavior of the "Enter" key (e.g., line break)

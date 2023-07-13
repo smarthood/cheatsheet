@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AngularFireAnalytics } from '@angular/fire/compat/analytics';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cheatsheet';
+  constructor(private analytics: AngularFireAnalytics) { }
+
+  ngOnInit() {
+    this.analytics.logEvent('user_login');
+  }
 }
